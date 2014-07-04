@@ -24,6 +24,12 @@ module Acme
           present OpenStruct.new(id: params[:id], length: 10, weight: "20kg"), with: Acme::Entities::Tool, foo: params[:foo]
         end
       end
+
+      desc 'amazon sns endpoint'
+      post 'sns_notification' do
+        sns = request.body.read
+        puts sns
+      end
     end
   end
 end
